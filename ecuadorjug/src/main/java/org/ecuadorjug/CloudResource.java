@@ -41,9 +41,7 @@ public class CloudResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void createCloud(@NotNull @Valid final Cloud cloud){
-
         businessLogic.createCloud(cloud);
-
     }
 
     private JsonObject createCloudJson(final Cloud cloud) {

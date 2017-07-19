@@ -11,15 +11,22 @@ import java.util.List;
 @Stateless
 public class BusinessLogic {
 
+    private static List<Cloud> cloudsDB = Arrays.asList(new Cloud("Oracle", 1), new Cloud("Scala ", 2));;
+
     public List<Cloud> getClouds(){
-        return Arrays.asList(new Cloud("TEST", 1), new Cloud("Test2 ", 2));
+        return cloudsDB;//Arrays.asList(new Cloud("Oracle", 1), new Cloud("Scala ", 2));
     }
 
     public void createCloud(Cloud cloud) {
-        System.out.println("Cloud" + cloud);
+        System.out.println("Cloud: " + cloud);
+        //cloudsDB.add(new Cloud("adsdsa", 1));
     }
 
     public Cloud getCloud(String name) {
         return new Cloud("adsdsa", 1);
+    }
+
+    public boolean isCloudTaken(final String name) {
+        return "java".equals(name);
     }
 }

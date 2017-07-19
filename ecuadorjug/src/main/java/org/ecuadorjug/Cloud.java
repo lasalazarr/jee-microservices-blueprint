@@ -16,6 +16,9 @@ public class Cloud {
     @Max(10)
     private int hype;
 
+    public Cloud() {
+    }
+
     public Cloud(String name, int hype) {
         this.name = name;
         this.hype = hype;
@@ -35,5 +38,13 @@ public class Cloud {
 
     public void setHype(int hype) {
         this.hype = hype;
+    }
+
+    @Override
+    public String toString() {
+        return "Cloud{" +
+                "name='" + name + '\'' +
+                ", hype=" + hype +
+                '}';
     }
 }
