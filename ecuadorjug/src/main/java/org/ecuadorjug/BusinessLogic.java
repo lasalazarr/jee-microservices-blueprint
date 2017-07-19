@@ -18,4 +18,8 @@ public class BusinessLogic {
     public void createCloud(Cloud cloud) {
         System.out.println("Cloud" + cloud);
     }
+
+    public Cloud getCloud(String name) {
+        return new Cloud("adsdsa", 1);
+    }
 }

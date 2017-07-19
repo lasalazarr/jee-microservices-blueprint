@@ -16,16 +16,24 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+
     </dependencies>
 
     <build>
         <finalName>ecuadorjug</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>1.0.2.Final</version>
+            </plugin>
+        </plugins>
     </build>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <faileOnMissingWebXml>false</faileOnMissingWebXml>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
