@@ -1,5 +1,6 @@
 package org.ecuadorjug;
 
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -8,9 +9,7 @@ import javax.json.JsonObject;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.UriInfo;
 
 /**
  * Created by alberto on 7/17/17.
@@ -21,8 +20,8 @@ public class CloudResource {
     @Inject
     private BusinessLogic businessLogic;
 
-    @Context
-    UriInfo uriInfo;
+    @Inject
+    Event<Cloud> newClouds;
 
     @GET
     public JsonArray getClouds(){
@@ -42,6 +41,7 @@ public class CloudResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public void createCloud(@NotNull @Valid final Cloud cloud){
         businessLogic.createCloud(cloud);
+        newClouds.fire(cloud);
     }
 
     private JsonObject createCloudJson(final Cloud cloud) {
